@@ -1,0 +1,133 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>SprocketDoomMod</AssemblyName>
+    <RootNamespace>SprocketDoomMod</RootNamespace>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <DebugType>embedded</DebugType>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GameDir Condition="'$(GameDir)' == '' and '$(SprocketGameRoot)' != ''">$(SprocketGameRoot)</GameDir>
+    <GameDir Condition="'$(GameDir)' == '' and '$(SPROCKET_GAME_ROOT)' != ''">$(SPROCKET_GAME_ROOT)</GameDir>
+    <GameDir Condition="'$(GameDir)' == '' and Exists('C:\Program Files (x86)\Steam\steamapps\common\Sprocket\Sprocket.exe')">C:\Program Files (x86)\Steam\steamapps\common\Sprocket</GameDir>
+    <GameDir Condition="'$(GameDir)' == '' and Exists('D:\SteamLibrary\steamapps\common\Sprocket\Sprocket.exe')">D:\SteamLibrary\steamapps\common\Sprocket</GameDir>
+    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Sprocket</GameDir>
+
+    <BepInExDir>$(GameDir)\BepInEx</BepInExDir>
+    <BepInExCoreDir>$(BepInExDir)\core</BepInExCoreDir>
+    <BepInExInteropDir>$(BepInExDir)\interop</BepInExInteropDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="DoomPlugin.cs" />
+    <Compile Include="DoomController.cs" />
+    <Compile Include="DoomWeaponView.cs" />
+    <Compile Include="DoomBallistics.cs" />
+    <Compile Include="DoomAudio.cs" />
+    <Compile Include="DoomAssetBuilder.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\frames\idle.png" LogicalName="DoomAssets.idle.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_00.png" LogicalName="DoomAssets.shoot_00.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_01.png" LogicalName="DoomAssets.shoot_01.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_02.png" LogicalName="DoomAssets.shoot_02.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_03.png" LogicalName="DoomAssets.shoot_03.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_04.png" LogicalName="DoomAssets.shoot_04.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_05.png" LogicalName="DoomAssets.shoot_05.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_06.png" LogicalName="DoomAssets.shoot_06.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_07.png" LogicalName="DoomAssets.shoot_07.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_08.png" LogicalName="DoomAssets.shoot_08.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_09.png" LogicalName="DoomAssets.shoot_09.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_10.png" LogicalName="DoomAssets.shoot_10.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_11.png" LogicalName="DoomAssets.shoot_11.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_12.png" LogicalName="DoomAssets.shoot_12.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_13.png" LogicalName="DoomAssets.shoot_13.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_14.png" LogicalName="DoomAssets.shoot_14.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_15.png" LogicalName="DoomAssets.shoot_15.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_16.png" LogicalName="DoomAssets.shoot_16.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_17.png" LogicalName="DoomAssets.shoot_17.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_18.png" LogicalName="DoomAssets.shoot_18.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_19.png" LogicalName="DoomAssets.shoot_19.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_20.png" LogicalName="DoomAssets.shoot_20.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_21.png" LogicalName="DoomAssets.shoot_21.png" />
+    <EmbeddedResource Include="Assets\frames\shoot_22.png" LogicalName="DoomAssets.shoot_22.png" />
+    <EmbeddedResource Include="Assets\frames\spans.bin" LogicalName="DoomAssets.spans.bin" />
+
+    <EmbeddedResource Include="Assets\amongus_anim.bin" LogicalName="DoomAssets.amongus_anim.bin" />
+    <EmbeddedResource Include="Assets\clippy_anim.bin" LogicalName="DoomAssets.clippy_anim.bin" />
+    <EmbeddedResource Include="Assets\doom_shoty.png" LogicalName="DoomAssets.doom_shoty.png" />
+    <EmbeddedResource Include="Assets\doom_shoty_shoot.gif" LogicalName="DoomAssets.doom_shoty_shoot.gif" />
+    <EmbeddedResource Include="Assets\e1m1.wav" LogicalName="DoomAssets.e1m1.wav" />
+    <EmbeddedResource Include="Assets\font3d_atlas.bin" LogicalName="DoomAssets.font3d_atlas.bin" />
+    <EmbeddedResource Include="Assets\heart_anim.bin" LogicalName="DoomAssets.heart_anim.bin" />
+    <EmbeddedResource Include="Assets\ui_candy.png" LogicalName="DoomAssets.ui_candy.png" />
+    <EmbeddedResource Include="Assets\ui_damage_overlay.png" LogicalName="DoomAssets.ui_damage_overlay.png" />
+    <EmbeddedResource Include="Assets\ui_dither_overlay.png" LogicalName="DoomAssets.ui_dither_overlay.png" />
+    <EmbeddedResource Include="Assets\ui_heart.png" LogicalName="DoomAssets.ui_heart.png" />
+    <EmbeddedResource Include="Assets\ui_mascot.png" LogicalName="DoomAssets.ui_mascot.png" />
+    <EmbeddedResource Include="Assets\ui_panel_ability.png" LogicalName="DoomAssets.ui_panel_ability.png" />
+    <EmbeddedResource Include="Assets\ui_panel_boost.png" LogicalName="DoomAssets.ui_panel_boost.png" />
+    <EmbeddedResource Include="Assets\ui_panel_candy.png" LogicalName="DoomAssets.ui_panel_candy.png" />
+    <EmbeddedResource Include="Assets\ui_panel_dark.png" LogicalName="DoomAssets.ui_panel_dark.png" />
+    <EmbeddedResource Include="Assets\ui_panel_dialogue.png" LogicalName="DoomAssets.ui_panel_dialogue.png" />
+    <EmbeddedResource Include="Assets\ui_panel_topblasters.png" LogicalName="DoomAssets.ui_panel_topblasters.png" />
+    <EmbeddedResource Include="Assets\ui_panel_wallet.png" LogicalName="DoomAssets.ui_panel_wallet.png" />
+    <EmbeddedResource Include="Assets\ui_panel_xpbar.png" LogicalName="DoomAssets.ui_panel_xpbar.png" />
+    <EmbeddedResource Include="Assets\ui_portrait.png" LogicalName="DoomAssets.ui_portrait.png" />
+    <EmbeddedResource Include="Assets\ui_wallet.png" LogicalName="DoomAssets.ui_wallet.png" />
+
+    <EmbeddedResource Include="sounds\announcer_kill_double_01.wav" LogicalName="DoomAssets.announcer_kill_double_01.wav" />
+    <EmbeddedResource Include="sounds\announcer_kill_rampage_01.wav" LogicalName="DoomAssets.announcer_kill_rampage_01.wav" />
+    <EmbeddedResource Include="sounds\announcer_kill_triple_01.wav" LogicalName="DoomAssets.announcer_kill_triple_01.wav" />
+    <EmbeddedResource Include="sounds\bhop_jump.wav" LogicalName="DoomAssets.bhop_jump.wav" />
+    <EmbeddedResource Include="sounds\big-shot_spamton.wav" LogicalName="DoomAssets.big-shot_spamton.wav" />
+    <EmbeddedResource Include="sounds\cs-go-headshot-sound.wav" LogicalName="DoomAssets.cs-go-headshot-sound.wav" />
+    <EmbeddedResource Include="sounds\cs_go-headshot-sound-effect.wav" LogicalName="DoomAssets.cs_go-headshot-sound-effect.wav" />
+    <EmbeddedResource Include="sounds\doom_shotgun_firing_sound_effect.wav" LogicalName="DoomAssets.doom_shotgun_firing_sound_effect.wav" />
+    <EmbeddedResource Include="sounds\firstblood.wav" LogicalName="DoomAssets.firstblood.wav" />
+    <EmbeddedResource Include="sounds\mlg-gun-shot-sound-effect.wav" LogicalName="DoomAssets.mlg-gun-shot-sound-effect.wav" />
+    <EmbeddedResource Include="sounds\mlg-win-last-kill.wav" LogicalName="DoomAssets.mlg-win-last-kill.wav" />
+    <EmbeddedResource Include="sounds\monsterkill.wav" LogicalName="DoomAssets.monsterkill.wav" />
+    <EmbeddedResource Include="sounds\shotgun_fire.wav" LogicalName="DoomAssets.shotgun_fire.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="$(BepInExCoreDir)\*.dll" Exclude="$(BepInExCoreDir)\TerraFX*.dll;$(BepInExCoreDir)\dobby.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="$(BepInExInteropDir)\*.dll">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="DeployToGame" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(BepInExDir)\plugins"
+          Condition="Exists('$(BepInExDir)\plugins')" SkipUnchangedFiles="false" />
+    <Message Importance="high" Text="$(AssemblyName) v$(Version) -> $(BepInExDir)\plugins"
+             Condition="Exists('$(BepInExDir)\plugins')" />
+  </Target>
+
+</Project>
