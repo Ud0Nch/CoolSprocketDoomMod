@@ -37,3 +37,5 @@ Or, if you don't use the Mod Manager, copy `SprocketDoomMod.dll` to:
 | `F9` | Weapon rendering mode: 3D mesh or 2D sprite (partially broken) |
 | `F10` | Dithering overlay (looks like shit) |
 | `-` / `=` | Music and SFX volume |
+
+Also check this super cool game on roblox (i ctrl+c ctrl+v their UI bleh :P) https://www.roblox.com/games/91523839824288/brainchip-arena 
