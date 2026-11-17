@@ -1,5 +1,9 @@
 Русская версия: [README_RU.md](README_RU.md)
 
+## Credits / AI Disclosure
+
+AI was used purely to clean up spaghetti code, untangle some game methods, and help with a few hooks and UI positioning math. What in the slopworld are we living in today...
+
 # REALLY COOL MOD!!!!
 
 This is a totally badass mod for **Sprocket**!!!
